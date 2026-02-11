@@ -225,36 +225,46 @@ function renderCards(data){
           <div class="card-name">${d.nama||''}</div>
           <div class="card-nip">${d.nip||''}</div>
         </div>
-        <span class="badge-proses ${p==='BKD'?'bkd':'internal'}">PROSES ${p}</span>
+        <span class="badge-proses ${p==='BKD'?'bkd':'internal'}">
+          PROSES ${p}
+        </span>
       </div>
+
       <div class="card-info"><strong>Gol:</strong> ${d.golongan||''}</div>
       <div class="card-info"><strong>Status:</strong> ${d.statusKepeg||''}</div>
+
       <div class="keterangan-box">${ket}</div>
       <div class="card-info"><strong>Waktu:</strong> ${d.waktu||''}</div>
+
       <a class="folder-btn" target="_blank" href="${d.folder||'#'}">
         <i class="fa fa-folder-open"></i> Buka Folder KGB
       </a>
     </div>`;
   });
-  $('#cardList').html(html);
+  document.getElementById('cardList').innerHTML = html;
 }
 
-// === AMBIL DATA DARI GAS (BACKEND JSON) ===
-fetch("https://script.google.com/macros/s/XXXX/exec")
+// 🔥 AMBIL DATA DARI GAS (INI KUNCI UTAMANYA)
+fetch("https://script.google.com/macros/s/PASTE_URL_GAS_ANDA/exec")
   .then(r => r.json())
   .then(data => {
     masterData = data;
     renderCards(data);
 
     const names=[...new Set(data.map(d=>d.nama))];
-    $('#search').autocomplete({
+    $("#search").autocomplete({
       source:names,
       minLength:0,
-      select:(e,ui)=>renderCards(masterData.filter(d=>d.nama===ui.item.value))
+      select:(e,ui)=>{
+        renderCards(masterData.filter(d=>d.nama===ui.item.value));
+      }
     }).on('input',function(){
       const q=this.value.toLowerCase();
       renderCards(masterData.filter(d=>(d.nama||'').toLowerCase().includes(q)));
     });
+  })
+  .catch(err=>{
+    console.error('Gagal ambil data:',err);
   });
 </script>
 
