@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proses Gaji Berkala</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+<style>
+:root{
+--primary:#2563eb;
+--warn:#f59e0b;
+--bg:#f1f5f9;
+--card:#ffffff;
+--soft:#f8fafc;
+}
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Inter,system-ui,Arial;
+background:var(--bg);
+height:100vh;
+overflow:hidden;
+}
+header{
+background:#fff;
+padding:14px 16px;
+display:flex;
+align-items:center;
+gap:10px;
+border-bottom:1px solid #e5e7eb;
+}
+.badge{
+background:linear-gradient(135deg,#2563eb,#38bdf8);
+color:#fff;
+padding:6px 12px;
+border-radius:999px;
+font-weight:800;
+font-size:12px;
+}
+.top-area{
+position:sticky;
+top:0;
+background:var(--bg);
+z-index:20;
+padding:16px;
+border-bottom:1px solid #e5e7eb;
+}
+.action-group{
+display:grid;
+gap:12px;
+margin-bottom:14px;
+}
+.action-btn{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+padding:18px;
+border-radius:18px;
+font-size:16px;
+font-weight:900;
+color:#fff;
+text-decoration:none;
+}
+.step{
+background:rgba(255,255,255,.25);
+padding:6px 12px;
+border-radius:999px;
+font-size:12px;
+font-weight:900;
+}
+.btn-kgb{background:linear-gradient(135deg,#2563eb,#38bdf8)}
+.btn-bkd{background:linear-gradient(135deg,#f59e0b,#fbbf24)}
+.contact-step{
+margin-top:8px;
+background:#fff;
+padding:10px 12px;
+border-radius:12px;
+font-size:14px;
+font-weight:700;
+display:flex;
+align-items:center;
+gap:8px;
+border:1px solid #fde68a;
+}
+.contact-step a{
+color:#2563eb;
+text-decoration:none;
+font-weight:900;
+}
+.notice{
+background:#fff7ed;
+border-left:6px solid #f59e0b;
+padding:14px;
+border-radius:14px;
+font-weight:800;
+margin-bottom:14px;
+}
+.search-box input{
+width:100%;
+padding:14px;
+border-radius:14px;
+border:1px solid #cbd5e1;
+font-size:16px;
+}
+.scroll-area{
+height:calc(100vh - 380px);
+overflow-y:auto;
+padding:16px;
+-webkit-overflow-scrolling:touch;
+}
+.card-list{display:grid;gap:14px;}
+.data-card{
+background:var(--card);
+border-radius:18px;
+padding:14px;
+box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+.card-header{
+display:flex;
+justify-content:space-between;
+gap:10px;
+margin-bottom:10px;
+}
+.card-name{font-weight:900;font-size:15px}
+.card-nip{font-size:13px;color:#475569}
+.badge-proses{
+padding:6px 12px;
+border-radius:999px;
+font-size:12px;
+font-weight:900;
+}
+.internal{background:#dcfce7;color:#166534}
+.bkd{background:#dbeafe;color:#1e40af}
+.card-info{font-size:14px;margin-bottom:6px}
+.keterangan-box{
+margin-top:10px;
+background:var(--soft);
+padding:12px;
+border-radius:12px;
+font-size:15px;
+font-weight:700;
+line-height:1.5;
+}
+.folder-btn{
+display:inline-flex;
+align-items:center;
+gap:8px;
+margin-top:12px;
+padding:12px 16px;
+border-radius:14px;
+background:#2563eb;
+color:#fff;
+font-weight:800;
+text-decoration:none;
+font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<span class="badge">KGB</span>
+<strong>Proses Gaji Berkala</strong>
+</header>
+
+<div class="top-area">
+  <div class="action-group">
+    <a class="action-btn btn-kgb" target="_blank"
+      href="https://script.google.com/macros/s/AKfycbxNBS7cj5Nin-zJCMA75Mw3qtG-Rgg6zN_PpgCTL_lzcAbh8VLM8ri9T4Q31vnoa8cf/exec">
+      <span>AJUKAN KGB</span><span class="step">STEP 1</span>
+    </a>
+    <a class="action-btn btn-bkd" target="_blank"
+      href="https://www.pengadaanmutasiasnbkdkalbar.com">
+      <span>LINK KGB BKD</span><span class="step">STEP 2</span>
+    </a>
+    <div class="contact-step">
+      <i class="fa-solid fa-circle-info"></i>
+      Kontak BKD:
+      <a href="tel:082155648339">Ibu Metthie — 0821-5564-8339</a>
+    </div>
+  </div>
+
+  <div class="notice">
+    ⚠️ <strong>PERHATIAN</strong><br>
+    Golongan <strong>III/d – IV/a</strong>, setelah menerima <strong>Surat Pengantar</strong>,
+    <strong>WAJIB mengisi Link KGB BKD</strong>.
+  </div>
+
+  <div class="search-box">
+    <input id="search" placeholder="🔍 Ketik Nama Pegawai">
+  </div>
+</div>
+
+<div class="scroll-area">
+  <div id="cardList" class="card-list"></div>
+</div>
+
+<script>
+let masterData=[];
+const bkdKeys=['iii/d','iv'];
+
+function getProses(gol,status){
+  if((status||'').toLowerCase()==='pppk') return 'BKD';
+  const g=(gol||'').toLowerCase();
+  if(bkdKeys.some(k=>g.includes(k))) return 'BKD';
+  return 'INTERNAL';
+}
+
+function renderCards(data){
+  let html='';
+  data.slice().reverse().forEach(d=>{
+    const p=getProses(d.golongan,d.statusKepeg);
+    const ket=(d.keterangan && d.keterangan.trim()) ? d.keterangan : 'Harap Bersabar!';
+    html+=`
+    <div class="data-card">
+      <div class="card-header">
+        <div>
+          <div class="card-name">${d.nama||''}</div>
+          <div class="card-nip">${d.nip||''}</div>
+        </div>
+        <span class="badge-proses ${p==='BKD'?'bkd':'internal'}">PROSES ${p}</span>
+      </div>
+      <div class="card-info"><strong>Gol:</strong> ${d.golongan||''}</div>
+      <div class="card-info"><strong>Status:</strong> ${d.statusKepeg||''}</div>
+      <div class="keterangan-box">${ket}</div>
+      <div class="card-info"><strong>Waktu:</strong> ${d.waktu||''}</div>
+      <a class="folder-btn" target="_blank" href="${d.folder||'#'}">
+        <i class="fa fa-folder-open"></i> Buka Folder KGB
+      </a>
+    </div>`;
+  });
+  $('#cardList').html(html);
+}
+
+// === AMBIL DATA DARI GAS (BACKEND JSON) ===
+fetch("https://script.google.com/macros/s/XXXX/exec")
+  .then(r => r.json())
+  .then(data => {
+    masterData = data;
+    renderCards(data);
+
+    const names=[...new Set(data.map(d=>d.nama))];
+    $('#search').autocomplete({
+      source:names,
+      minLength:0,
+      select:(e,ui)=>renderCards(masterData.filter(d=>d.nama===ui.item.value))
+    }).on('input',function(){
+      const q=this.value.toLowerCase();
+      renderCards(masterData.filter(d=>(d.nama||'').toLowerCase().includes(q)));
+    });
+  });
+</script>
+
+</body>
+</html>
