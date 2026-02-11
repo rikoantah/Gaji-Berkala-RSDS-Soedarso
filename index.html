@@ -201,7 +201,6 @@ font-size:14px;
 <div class="scroll-area">
   <div id="cardList" class="card-list"></div>
 </div>
-
 <script>
 let masterData=[];
 const bkdKeys=['iii/d','iv'];
@@ -244,8 +243,8 @@ function renderCards(data){
   document.getElementById('cardList').innerHTML = html;
 }
 
-// 🔥 AMBIL DATA DARI GAS (INI KUNCI UTAMANYA)
-fetch("https://script.google.com/macros/s/PASTE_URL_GAS_ANDA/exec")
+// 🔥 FETCH DATA DARI GAS (URL ANDA)
+fetch("https://script.google.com/macros/s/AKfycbzYVRuHAguMwyRe1sKUNFeOxkr8g9pe_u2jJ5kuka5YfCeTNX0K8A-O99pCRov_zd1U/exec")
   .then(r => r.json())
   .then(data => {
     masterData = data;
@@ -264,7 +263,7 @@ fetch("https://script.google.com/macros/s/PASTE_URL_GAS_ANDA/exec")
     });
   })
   .catch(err=>{
-    console.error('Gagal ambil data:',err);
+    console.error('Gagal ambil data:', err);
   });
 </script>
 
