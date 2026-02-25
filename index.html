@@ -183,7 +183,6 @@ font-size:14px;
     <div class="contact-step">
       <i class="fa-solid fa-circle-info"></i>
       Kontak BKD:
-      <a href="tel:082155648339">Ibu Metthie — 0821-5564-8339</a>
     </div>
   </div>
 
@@ -213,32 +212,30 @@ function getProses(gol,status){
 }
 
 function renderCards(data){
-  let html='';
-  data.slice().reverse().forEach(d=>{
-    const p=getProses(d.golongan,d.statusKepeg);
-    const ket=(d.keterangan && d.keterangan.trim()) ? d.keterangan : 'Harap Bersabar!';
-    html+=`
-    <div class="data-card">
-      <div class="card-header">
-        <div>
-          <div class="card-name">${d.nama||''}</div>
-          <div class="card-nip">${d.nip||''}</div>
+  let html = '';
+  data.slice().reverse().forEach(d => {
+    const catatan = (d.keterangan && d.keterangan.trim())
+      ? d.keterangan
+      : 'Menunggu Verifikasi';
+
+    html += `
+      <div class="data-card">
+        <div class="card-header">
+          <div class="card-name">${d.nama || '-'}</div>
         </div>
-        <span class="badge-proses ${p==='BKD'?'bkd':'internal'}">
-          PROSES ${p}
-        </span>
+
+        <div class="keterangan-box">
+          ${catatan}
+        </div>
+
+        ${d.folder
+          ? `<a class="folder-btn" target="_blank" href="${d.folder}">
+              <i class="fa fa-folder-open"></i> Buka Folder
+            </a>`
+          : ''
+        }
       </div>
-
-      <div class="card-info"><strong>Gol:</strong> ${d.golongan||''}</div>
-      <div class="card-info"><strong>Status:</strong> ${d.statusKepeg||''}</div>
-
-      <div class="keterangan-box">${ket}</div>
-      <div class="card-info"><strong>Waktu:</strong> ${d.waktu||''}</div>
-
-      <a class="folder-btn" target="_blank" href="${d.folder||'#'}">
-        <i class="fa fa-folder-open"></i> Buka Folder KGB
-      </a>
-    </div>`;
+    `;
   });
   document.getElementById('cardList').innerHTML = html;
 }
