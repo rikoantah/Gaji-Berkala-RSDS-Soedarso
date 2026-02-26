@@ -3,17 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proses Gaji Berkala</title>
+<title>Gaji Berkala</title>
 
 <style>
 :root{
   --blue:#2563eb;
-  --orange:#f59e0b;
-  --green:#16a34a;
+  --cyan:#0ea5e9;
   --bg:#f8fafc;
   --card:#ffffff;
   --text:#0f172a;
-  --muted:#475569;
+  --shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 *{box-sizing:border-box}
@@ -23,142 +22,144 @@ body{
   font-family:system-ui,-apple-system,Segoe UI,Roboto;
   background:var(--bg);
   color:var(--text);
+  min-height:100vh;
 }
 
-/* HEADER */
-header{
-  background:#ffffff;
-  padding:16px;
+/* TOP BAR */
+.topbar{
+  position:sticky;
+  top:0;
+  background:#fff;
+  padding:14px 16px;
   display:flex;
   align-items:center;
   gap:12px;
   box-shadow:0 2px 8px rgba(0,0,0,.06);
+  z-index:10;
 }
 
-.badge{
+.back-btn{
+  text-decoration:none;
   background:linear-gradient(135deg,#60a5fa,#2563eb);
   color:#fff;
-  padding:6px 14px;
+  padding:8px 14px;
   border-radius:999px;
-  font-size:12px;
+  font-size:13px;
   font-weight:800;
 }
 
-header strong{
-  font-size:16px;
+.topbar strong{
+  font-size:15px;
 }
 
 /* MAIN */
 .main{
-  padding:18px;
-  max-width:640px;
-  margin:auto;
+  max-width:520px;
+  margin:0 auto;
+  padding:28px 16px;
 }
 
-/* NOTICE */
-.notice{
-  background:#fff7ed;
-  border-left:6px solid var(--orange);
-  padding:14px;
-  border-radius:14px;
-  font-size:14px;
-  font-weight:700;
-  margin-bottom:18px;
+/* TITLE */
+.title{
+  text-align:center;
+  margin-bottom:22px;
 }
 
-/* BUTTON LIST */
-.actions{
+.title h1{
+  margin:0;
+  font-size:1.6rem;
+  font-weight:800;
+}
+
+.title p{
+  margin-top:6px;
+  font-size:13px;
+  color:#475569;
+}
+
+/* BUTTON GRID */
+.grid{
   display:grid;
-  gap:14px;
+  grid-template-columns:1fr;
+  gap:16px;
 }
 
 .btn{
+  background:var(--card);
+  border-radius:22px;
+  padding:22px 18px;
+  box-shadow:var(--shadow);
+  text-decoration:none;
+  color:var(--text);
   display:flex;
   align-items:center;
-  justify-content:space-between;
-  padding:18px;
-  border-radius:18px;
-  text-decoration:none;
-  color:#fff;
-  font-size:16px;
-  font-weight:900;
-  transition:.2s ease;
-}
-
-.btn small{
-  background:rgba(255,255,255,.25);
-  padding:6px 12px;
-  border-radius:999px;
-  font-size:12px;
+  gap:16px;
+  transition:.25s ease;
 }
 
 .btn:hover{
-  transform:translateY(-2px);
+  transform:translateY(-3px);
+  box-shadow:0 16px 30px rgba(0,0,0,.12);
 }
 
-/* COLOR VARIANTS */
-.btn-kgb{
-  background:linear-gradient(135deg,#60a5fa,#2563eb);
-}
-
-.btn-bkd{
-  background:linear-gradient(135deg,#fbbf24,#f59e0b);
-}
-
-/* INFO BOX */
-.info{
-  margin-top:16px;
-  background:#ffffff;
-  padding:14px;
-  border-radius:14px;
-  font-size:14px;
-  font-weight:700;
-  color:var(--muted);
+.icon{
+  width:56px;
+  height:56px;
+  border-radius:18px;
   display:flex;
   align-items:center;
-  gap:8px;
+  justify-content:center;
+  font-size:26px;
+  color:#fff;
+  flex-shrink:0;
+}
+
+.i-blue{background:linear-gradient(135deg,#60a5fa,#2563eb)}
+.i-cyan{background:linear-gradient(135deg,#7dd3fc,#0ea5e9)}
+
+.btn-text{
+  font-size:16px;
+  font-weight:800;
 }
 
 /* PRINT */
 @media print{
   body{background:#fff}
+  .topbar{box-shadow:none}
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <span class="badge">KGB</span>
-  <strong>Proses Gaji Berkala</strong>
-</header>
+<!-- TOP BAR -->
+<div class="topbar">
+  <a class="back-btn" href="https://rikoantah.github.io/Web-Utama-UMPAR/">← Back</a>
+  <strong>Menu Utama</strong>
+</div>
 
+<!-- MAIN -->
 <div class="main">
 
-  <div class="notice">
-    ⚠️ <strong>PERHATIAN</strong><br>
-    Golongan <strong>III/d – IV/a dan PPPK</strong>, setelah menerima
-    <strong>Surat Pengantar</strong>, <strong>WAJIB mengisi Link KGB BKD</strong>.
+  <div class="title">
+    <h1>Proses Gaji Berkala</h1>
+    <p>Pilih layanan yang tersedia</p>
   </div>
 
-  <div class="actions">
+  <div class="grid">
 
-    <a class="btn btn-kgb" target="_blank"
+    <a class="btn" target="_blank"
        href="https://script.google.com/macros/s/AKfycbxNBS7cj5Nin-zJCMA75Mw3qtG-Rgg6zN_PpgCTL_lzcAbh8VLM8ri9T4Q31vnoa8cf/exec">
-      <span>Ajukan KGB</span>
-      <small>STEP 1</small>
+      <div class="icon i-blue">📝</div>
+      <div class="btn-text">Ajukan KGB</div>
     </a>
 
-    <a class="btn btn-bkd" target="_blank"
+    <a class="btn" target="_blank"
        href="https://www.pengadaanmutasiasnbkdkalbar.com">
-      <span>Link KGB BKD</span>
-      <small>STEP 2</small>
+      <div class="icon i-cyan">🔗</div>
+      <div class="btn-text">Link KGB Resmi</div>
     </a>
 
-  </div>
-
-  <div class="info">
-    ℹ️ Kontak & informasi lanjutan dapat diperoleh melalui BKD.
   </div>
 
 </div>
