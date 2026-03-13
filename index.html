@@ -3,13 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gaji Berkala</title>
+<title>Proses Gaji Berkala</title>
 
 <style>
+
 :root{
   --blue:#2563eb;
   --cyan:#0ea5e9;
-  --bg:#f8fafc;
+  --orange:#f97316;
+  --bg:#f1f5f9;
   --card:#ffffff;
   --text:#0f172a;
   --shadow:0 10px 25px rgba(0,0,0,.08);
@@ -22,67 +24,72 @@ body{
   font-family:system-ui,-apple-system,Segoe UI,Roboto;
   background:var(--bg);
   color:var(--text);
-  min-height:100vh;
 }
 
-/* TOP BAR */
-.topbar{
-  position:sticky;
-  top:0;
-  background:#fff;
-  padding:14px 16px;
-  display:flex;
-  align-items:center;
-  gap:12px;
-  box-shadow:0 2px 8px rgba(0,0,0,.06);
-  z-index:10;
-}
+/* HEADER */
 
-.back-btn{
-  text-decoration:none;
-  background:linear-gradient(135deg,#60a5fa,#2563eb);
-  color:#fff;
-  padding:8px 14px;
-  border-radius:999px;
-  font-size:13px;
-  font-weight:800;
-}
-
-.topbar strong{
-  font-size:15px;
-}
-
-/* MAIN */
-.main{
-  max-width:520px;
-  margin:0 auto;
-  padding:28px 16px;
-}
-
-/* TITLE */
-.title{
+.header{
   text-align:center;
-  margin-bottom:22px;
+  padding:22px 16px;
+  background:white;
+  box-shadow:0 3px 10px rgba(0,0,0,.06);
 }
 
-.title h1{
+.header h1{
   margin:0;
   font-size:1.6rem;
   font-weight:800;
 }
 
-.title p{
+.header p{
   margin-top:6px;
   font-size:13px;
   color:#475569;
 }
 
-/* BUTTON GRID */
+/* MAIN */
+
+.main{
+  max-width:520px;
+  margin:auto;
+  padding:25px 16px;
+}
+
+/* NOTICE */
+
+.notice{
+  background:white;
+  border-left:6px solid var(--orange);
+  padding:18px;
+  border-radius:16px;
+  box-shadow:var(--shadow);
+  margin-bottom:22px;
+}
+
+.notice h3{
+  margin:0 0 8px 0;
+  font-size:15px;
+}
+
+.notice p{
+  font-size:13px;
+  line-height:1.5;
+  color:#334155;
+}
+
+.hp{
+  font-weight:800;
+  color:#2563eb;
+}
+
+/* GRID */
+
 .grid{
   display:grid;
-  grid-template-columns:1fr;
   gap:16px;
 }
+
+/* BUTTON */
 
 .btn{
   background:var(--card);
@@ -101,6 +108,8 @@ body{
   transform:translateY(-3px);
   box-shadow:0 16px 30px rgba(0,0,0,.12);
 }
+
+/* ICON */
 
 .icon{
   width:56px;
@@ -122,45 +131,88 @@ body{
   font-weight:800;
 }
 
-/* PRINT */
-@media print{
-  body{background:#fff}
-  .topbar{box-shadow:none}
+/* FOOTER */
+
+.footer{
+  margin-top:30px;
+  text-align:center;
+  font-size:12px;
+  color:#64748b;
 }
+
 </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <a class="back-btn" href="https://rikoantah.github.io/Web-Utama-UMPAR/">← Back</a>
-  <strong>Menu Utama</strong>
+<div class="header">
+<h1>Proses Gaji Berkala</h1>
+<p>Pilih layanan yang tersedia</p>
 </div>
 
-<!-- MAIN -->
 <div class="main">
 
-  <div class="title">
-    <h1>Proses Gaji Berkala</h1>
-    <p>Pilih layanan yang tersedia</p>
-  </div>
+<div class="notice">
 
-  <div class="grid">
+<h3>📢 Pemberitahuan Penting</h3>
 
-    <a class="btn" target="_blank"
-       href="https://script.google.com/macros/s/AKfycbxNBS7cj5Nin-zJCMA75Mw3qtG-Rgg6zN_PpgCTL_lzcAbh8VLM8ri9T4Q31vnoa8cf/exec">
-      <div class="icon i-blue">📝</div>
-      <div class="btn-text">Step 1 Ajukan KGB</div>
-    </a>
+<p>
+Jika pada keterangan muncul tulisan 
+<strong>"TMT *** Tahun Sudah Selesai"</strong>,
+silahkan <b>tanya terlebih dahulu ke Bagian Berkala BKD</b>.
+</p>
 
-    <a class="btn" target="_blank"
-       href="https://script.google.com/macros/s/AKfycbw3FKn81TKGYsN657-z88fOSMkkKz9fC244pSjF0mvEeC-x4a_4-s6LjP4s9RJxVxMXbg/exec">
-      <div class="icon i-cyan">🔗</div>
-      <div class="btn-text">Step 2 Ajukan Ke BKD dan Pantau Perkembangan Berkala Anda</div>
-    </a>
+<p>
+Hubungi : <br>
+<b>Ibu Mettie</b><br>
+HP / WhatsApp :
+<span class="hp">082155648339</span>
+</p>
 
-  </div>
+<p>
+Silahkan kirim <b>screen shoot keterangan</b> tersebut
+dan tanyakan apakah data sudah dikirim ke 
+<b>Admin Soedarso</b>.
+</p>
+
+<p>
+Jika jawabannya <b>SUDAH</b>,
+silahkan hubungi <b>Bagian UMPAR RSUD dr Soedarso</b>.
+</p>
+
+</div>
+
+
+<div class="grid">
+
+<a class="btn" target="_blank"
+href="https://script.google.com/macros/s/AKfycbxNBS7cj5Nin-zJCMA75Mw3qtG-Rgg6zN_PpgCTL_lzcAbh8VLM8ri9T4Q31vnoa8cf/exec">
+
+<div class="icon i-blue">📝</div>
+
+<div class="btn-text">
+Step 1 Ajukan KGB
+</div>
+
+</a>
+
+
+<a class="btn" target="_blank"
+href="https://script.google.com/macros/s/AKfycbw3FKn81TKGYsN657-z88fOSMkkKz9fC244pSjF0mvEeC-x4a_4-s6LjP4s9RJxVxMXbg/exec">
+
+<div class="icon i-cyan">🔗</div>
+
+<div class="btn-text">
+Step 2 Ajukan ke BKD dan Pantau Perkembangan
+</div>
+
+</a>
+
+</div>
+
+<div class="footer">
+RSUD dr Soedarso • Sistem Pengajuan Gaji Berkala
+</div>
 
 </div>
 
