@@ -9,18 +9,17 @@
 
 :root{
   --blue:#2563eb;
-  --cyan:#0ea5e9;
+  --cyan:#06b6d4;
   --orange:#f97316;
-  --bg:#f1f5f9;
+  --bg:linear-gradient(135deg,#e0f2fe,#f8fafc);
   --card:#ffffff;
   --text:#0f172a;
-  --shadow:0 10px 25px rgba(0,0,0,.08);
+  --shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-*{box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-  margin:0;
   font-family:system-ui,-apple-system,Segoe UI,Roboto;
   background:var(--bg);
   color:var(--text);
@@ -30,51 +29,54 @@ body{
 
 .header{
   text-align:center;
-  padding:22px 16px;
-  background:white;
-  box-shadow:0 3px 10px rgba(0,0,0,.06);
+  padding:28px 16px;
 }
 
 .header h1{
-  margin:0;
-  font-size:1.6rem;
+  font-size:1.9rem;
   font-weight:800;
 }
 
 .header p{
-  margin-top:6px;
-  font-size:13px;
+  font-size:14px;
   color:#475569;
+  margin-top:6px;
 }
 
 /* MAIN */
 
 .main{
-  max-width:520px;
+  max-width:900px;
   margin:auto;
-  padding:25px 16px;
+  padding:20px;
+}
+
+/* CARD GLOBAL */
+
+.card{
+  background:var(--card);
+  border-radius:20px;
+  padding:20px;
+  box-shadow:var(--shadow);
 }
 
 /* NOTICE */
 
 .notice{
-  background:white;
+  margin-bottom:20px;
   border-left:6px solid var(--orange);
-  padding:18px;
-  border-radius:16px;
-  box-shadow:var(--shadow);
-  margin-bottom:24px;
 }
 
 .notice h3{
-  margin:0 0 8px 0;
-  font-size:15px;
+  font-size:16px;
+  margin-bottom:8px;
 }
 
 .notice p{
   font-size:13px;
-  line-height:1.6;
   color:#334155;
+  line-height:1.6;
+  margin-bottom:6px;
 }
 
 /* WA BUTTON */
@@ -82,12 +84,12 @@ body{
 .wa-btn{
   display:inline-block;
   margin-top:10px;
-  padding:10px 14px;
+  padding:10px 16px;
   background:#25D366;
   color:white;
   text-decoration:none;
-  font-weight:700;
-  border-radius:10px;
+  font-weight:600;
+  border-radius:12px;
   font-size:13px;
 }
 
@@ -95,31 +97,42 @@ body{
 
 .grid{
   display:grid;
-  gap:16px;
+  gap:18px;
 }
 
-/* BUTTON */
+/* RESPONSIVE GRID */
+
+@media(min-width:600px){
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+/* BUTTON CARD */
 
 .btn{
-  background:var(--card);
-  border-radius:22px;
-  padding:20px 18px;
-  box-shadow:var(--shadow);
-  text-decoration:none;
-  color:var(--text);
   display:flex;
   gap:16px;
-  transition:.25s ease;
+  align-items:center;
+  text-decoration:none;
+  color:var(--text);
+  border-radius:20px;
+  padding:18px;
+  background:var(--card);
+  box-shadow:var(--shadow);
+  transition:.25s;
 }
 
 .btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 16px 30px rgba(0,0,0,.12);
+  transform:translateY(-4px);
+  box-shadow:0 18px 35px rgba(0,0,0,.12);
 }
 
+/* ICON */
+
 .icon{
-  width:56px;
-  height:56px;
+  width:60px;
+  height:60px;
   border-radius:18px;
   display:flex;
   align-items:center;
@@ -130,7 +143,9 @@ body{
 }
 
 .i-blue{background:linear-gradient(135deg,#60a5fa,#2563eb)}
-.i-cyan{background:linear-gradient(135deg,#7dd3fc,#0ea5e9)}
+.i-cyan{background:linear-gradient(135deg,#67e8f9,#06b6d4)}
+
+/* TEXT */
 
 .btn-text{
   font-weight:800;
@@ -146,7 +161,7 @@ body{
 /* FOOTER */
 
 .footer{
-  margin-top:28px;
+  margin-top:30px;
   text-align:center;
   font-size:12px;
   color:#64748b;
@@ -164,38 +179,31 @@ body{
 
 <div class="main">
 
-<div class="notice">
+<!-- NOTICE -->
+<div class="card notice">
 
-<h3>📢 Pemberitahuan Penting</h3>
+<h3>📢 Informasi Penting</h3>
 
 <p>
-Jika pada keterangan muncul tulisan
+Jika muncul keterangan 
 <b>"TMT *** Tahun Sudah Selesai"</b>,
-silahkan hubungi Bagian Berkala BKD.
+silakan hubungi BKD.
 </p>
 
 <p>
-Silahkan kirim <b>screen shoot keterangan</b>
-tersebut dan tanyakan apakah SK Berkala sudah dikirim
-ke <b>Admin Soedarso</b>.
-</p>
-
-<p>
-Jika jawabannya <b>SUDAH</b>,
-silahkan hubungi <b>Bagian UMPAR RSUD dr Soedarso</b>.
+Kirim <b>screenshoot</b> ke Admin Soedarso.
+Jika sudah dikirim, lanjut ke UMPAR.
 </p>
 
 <a class="wa-btn"
 href="https://wa.me/6282155648339"
 target="_blank">
-
-Hubungi Ibu Mettie (WhatsApp)
-
+💬 Hubungi Admin
 </a>
 
 </div>
 
-
+<!-- MENU -->
 <div class="grid">
 
 <a class="btn" target="_blank"
@@ -204,19 +212,11 @@ href="https://script.google.com/macros/s/AKfycbxNBS7cj5Nin-zJCMA75Mw3qtG-Rgg6zN_
 <div class="icon i-blue">📝</div>
 
 <div>
-
-<div class="btn-text">
-Step 1 Ajukan KGB
-</div>
-
-<div class="sub">
-Untuk semua ASN
-</div>
-
+<div class="btn-text">Step 1 Ajukan KGB</div>
+<div class="sub">Untuk semua ASN</div>
 </div>
 
 </a>
-
 
 <a class="btn" target="_blank"
 href="https://script.google.com/macros/s/AKfycbw3FKn81TKGYsN657-z88fOSMkkKz9fC244pSjF0mvEeC-x4a_4-s6LjP4s9RJxVxMXbg/exec">
@@ -224,17 +224,11 @@ href="https://script.google.com/macros/s/AKfycbw3FKn81TKGYsN657-z88fOSMkkKz9fC24
 <div class="icon i-cyan">🔗</div>
 
 <div>
-
-<div class="btn-text">
-Step 2 Ajukan ke BKD dan Pantau Perkembangan
-</div>
-
+<div class="btn-text">Step 2 Ajukan ke BKD</div>
 <div class="sub">
-Khusus PNS Golongan III/d – IV/e dan PPPK
-<br>
-Catatan: Setelah mendapatkan Pengantar OPD
+Gol III/d – IV/e & PPPK<br>
+Setelah Pengantar OPD
 </div>
-
 </div>
 
 </a>
