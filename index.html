@@ -1,305 +1,716 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proses Gaji Berkala</title>
+<meta name="theme-color" content="#0b1734">
+<title>Layanan Kenaikan Gaji Berkala | RSUD dr. Soedarso</title>
 
 <style>
-
-:root{
-  --blue:#2563eb;
-  --cyan:#06b6d4;
-  --orange:#f97316;
-  --bg:linear-gradient(135deg,#e0f2fe,#f8fafc);
-  --card:#ffffff;
-  --text:#0f172a;
-  --shadow:0 10px 30px rgba(0,0,0,.08);
+:root {
+  --navy: #0b1734;
+  --navy2: #142957;
+  --blue: #2563eb;
+  --sky: #0ea5e9;
+  --green: #059669;
+  --text: #15233d;
+  --muted: #64748b;
+  --line: #e5eaf3;
+  --bg: #f3f7fc;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-  font-family:system-ui,-apple-system,Segoe UI,Roboto;
-  background:var(--bg);
-  color:var(--text);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* HEADER */
-
-.header{
-  text-align:center;
-  padding:28px 16px;
+body {
+  font-family: Inter, system-ui, -apple-system,
+               "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
 }
 
-.header h1{
-  font-size:1.9rem;
-  font-weight:800;
+/* HERO */
+
+.hero {
+  background:
+    radial-gradient(circle at 90% 15%,
+      rgba(56,189,248,.24),transparent 34%),
+    radial-gradient(circle at 10% 100%,
+      rgba(59,130,246,.20),transparent 40%),
+    linear-gradient(135deg,#0b1734,#172f65);
+  padding: 42px 20px 100px;
+  position: relative;
+  overflow: hidden;
 }
 
-.header p{
-  font-size:14px;
-  color:#475569;
-  margin-top:6px;
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 50%;
+  right: -100px;
+  top: -100px;
+  box-shadow:
+    0 0 0 55px rgba(255,255,255,.025),
+    0 0 0 110px rgba(255,255,255,.02);
+}
+
+.hero-inner {
+  max-width: 1060px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  margin-bottom: 42px;
+}
+
+.brand-mark {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.20);
+  border-radius: 13px;
+  font-size: 23px;
+}
+
+.brand-name {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+.brand-small {
+  font-size: 11px;
+  color: #b5c7e5;
+  margin-top: 3px;
+}
+
+.hero-label {
+  display: inline-block;
+  background: rgba(56,189,248,.12);
+  border: 1px solid rgba(125,211,252,.25);
+  color: #bae6fd;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 8px 13px;
+  border-radius: 30px;
+  letter-spacing: .8px;
+  margin-bottom: 17px;
+}
+
+.hero h1 {
+  font-size: clamp(29px,5vw,47px);
+  line-height: 1.16;
+  color: white;
+  font-weight: 850;
+  letter-spacing: -1.1px;
+}
+
+.hero h1 span {
+  color: #67d4ff;
+}
+
+.hero-desc {
+  margin-top: 15px;
+  color: #c5d4ec;
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 600px;
 }
 
 /* MAIN */
 
-.main{
-  max-width:900px;
-  margin:auto;
-  padding:20px;
+.container {
+  width: min(1060px,calc(100% - 32px));
+  margin: -52px auto 40px;
+  position: relative;
+  z-index: 2;
 }
 
-/* CARD */
-
-.card{
-  background:var(--card);
-  border-radius:20px;
-  padding:20px;
-  box-shadow:var(--shadow);
+.panel {
+  background: white;
+  border-radius: 22px;
+  padding: 28px;
+  border: 1px solid #e9eef7;
+  box-shadow: 0 12px 36px rgba(15,35,75,.07);
 }
 
-/* NOTICE */
-
-.notice{
-  margin-bottom:20px;
-  border-left:6px solid var(--orange);
+.section-kicker {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: 1.3px;
+  margin-bottom: 7px;
 }
 
-.notice h3{
-  font-size:16px;
-  margin-bottom:8px;
+.section-title {
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -.5px;
 }
 
-.notice p{
-  font-size:13px;
-  color:#334155;
-  line-height:1.6;
-  margin-bottom:6px;
+.section-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-top: 6px;
 }
 
-.notice ul{
-  font-size:13px;
-  color:#334155;
-  line-height:1.6;
-  padding-left:18px;
-  margin-top:6px;
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 26px;
 }
 
-/* WA BUTTON */
+/* SERVICE CARDS */
 
-.wa-btn{
-  display:inline-block;
-  margin-top:10px;
-  padding:10px 16px;
-  background:#25D366;
-  color:white;
-  text-decoration:none;
-  font-weight:600;
-  border-radius:12px;
-  font-size:13px;
-  transition:.2s;
+.service {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 23px;
+  background: #fff;
+  position: relative;
+  transition: .25s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.wa-btn:hover{
-  transform:scale(1.05);
+.service:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(18,45,90,.10);
+  border-color: #b9d5ff;
 }
 
-/* GRID */
-
-.grid{
-  display:grid;
-  gap:18px;
+.service-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
 }
 
-@media(min-width:600px){
-  .grid{
-    grid-template-columns:1fr 1fr;
-  }
+.service-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
 }
 
-/* BUTTON */
-
-.btn{
-  display:flex;
-  gap:16px;
-  align-items:center;
-  text-decoration:none;
-  color:var(--text);
-  border-radius:20px;
-  padding:18px;
-  background:var(--card);
-  box-shadow:var(--shadow);
-  transition:.25s;
+.step-one .service-icon {
+  background: #eaf2ff;
 }
 
-.btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 18px 35px rgba(0,0,0,.12);
+.step-two .service-icon {
+  background: #e6f9fb;
 }
 
-/* ICON */
-
-.icon{
-  width:60px;
-  height:60px;
-  border-radius:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:26px;
-  color:white;
-  flex-shrink:0;
+.step-badge {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--blue);
+  background: #eff6ff;
+  padding: 7px 11px;
+  border-radius: 30px;
 }
 
-.i-blue{background:linear-gradient(135deg,#60a5fa,#2563eb)}
-.i-cyan{background:linear-gradient(135deg,#67e8f9,#06b6d4)}
-
-/* TEXT */
-
-.btn-text{
-  font-weight:800;
-  font-size:15px;
+.step-two .step-badge {
+  background: #e8fbff;
+  color: #0891b2;
 }
 
-.sub{
-  font-size:12px;
-  color:#64748b;
-  margin-top:4px;
+.service h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 10px;
 }
 
-/* WARNING BOX */
+.service p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #64748b;
+}
 
-.warn{
-  margin-top:12px;
-  background:#fff7ed;
-  border:1px solid #fed7aa;
-  padding:10px;
-  border-radius:10px;
-  font-size:12px;
-  color:#9a3412;
-  font-weight:600;
+.service-info {
+  margin-top: 18px;
+  padding: 13px;
+  border-radius: 12px;
+  background: #f5f8fd;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #475569;
+}
+
+.service-info strong {
+  color: #1e3a5f;
+}
+
+.service-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 25px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  color: white;
+  background: transparent;
+}
+
+.action-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px 18px;
+  border-radius: 12px;
+  background: var(--blue);
+  transition: .2s;
+}
+
+.step-two .action-inner {
+  background: #0891b2;
+}
+
+.service-action:hover .action-inner {
+  filter: brightness(1.1);
+}
+
+.arrow {
+  font-size: 20px;
+}
+
+/* FLOW */
+
+.flow-note {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+  background: #f1f6ff;
+  border: 1px solid #dce9ff;
+  padding: 16px;
+  border-radius: 13px;
+}
+
+.flow-note .symbol {
+  font-size: 20px;
+}
+
+.flow-note p {
+  font-size: 12px;
+  color: #365174;
+  line-height: 1.75;
+}
+
+/* FINANCE */
+
+.finance-panel {
+  margin-top: 22px;
+  background: linear-gradient(130deg,#ffffff,#f2fbf8);
+  border: 1px solid #ccece0;
+  border-radius: 22px;
+  padding: 26px 28px;
+  box-shadow: 0 8px 25px rgba(15,35,75,.035);
+}
+
+.finance-heading {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 17px;
+}
+
+.finance-icon {
+  width: 49px;
+  height: 49px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  background: #dcfce7;
+}
+
+.finance-heading h2 {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.finance-heading span {
+  display: block;
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 3px;
+}
+
+.finance-message {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #475569;
+}
+
+.finance-message strong {
+  color: #134e4a;
+}
+
+.finance-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 19px;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #d8ede4;
+  border-radius: 14px;
+}
+
+.contact-label {
+  font-size: 11px;
+  color: #64748b;
+  margin-bottom: 5px;
+}
+
+.contact-name {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.contact-phone {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.wa-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 18px;
+  border-radius: 11px;
+  background: #16a34a;
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 800;
+  transition: .2s;
+}
+
+.wa-button:hover {
+  background: #15803d;
+  transform: translateY(-2px);
+}
+
+.pdf-reminder {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  font-size: 12px;
+  line-height: 1.7;
+  margin-top: 15px;
+  color: #047857;
+  font-weight: 600;
 }
 
 /* FOOTER */
 
-.footer{
-  margin-top:30px;
-  text-align:center;
-  font-size:12px;
-  color:#64748b;
+.footer {
+  text-align: center;
+  padding: 10px 16px 35px;
+  color: #94a3b8;
+  font-size: 11px;
+  line-height: 1.9;
 }
 
+.footer strong {
+  color: #64748b;
+}
+
+/* MOBILE */
+
+@media(max-width:650px) {
+  .hero {
+    padding: 25px 19px 87px;
+  }
+
+  .brand {
+    margin-bottom: 34px;
+  }
+
+  .container {
+    margin-top: -47px;
+  }
+
+  .panel {
+    padding: 21px 16px;
+    border-radius: 19px;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 21px;
+  }
+
+  .service {
+    padding: 19px;
+  }
+
+  .section-title {
+    font-size: 21px;
+  }
+
+  .finance-panel {
+    padding: 21px 17px;
+  }
+
+  .finance-contact {
+    align-items: stretch;
+  }
+
+  .wa-button {
+    width: 100%;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  * {
+    transition: none !important;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<div class="header">
-<h1>Proses Gaji Berkala</h1>
-<p>Pilih layanan yang tersedia</p>
-</div>
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
 
-<div class="main">
+    <div class="brand">
+      <div class="brand-mark">✚</div>
+      <div>
+        <div class="brand-name">
+          RSUD dr. Soedarso
+        </div>
+        <div class="brand-small">
+          Portal Layanan Kepegawaian
+        </div>
+      </div>
+    </div>
 
-<!-- NOTICE -->
-<div class="card notice">
+    <div class="hero-label">
+      LAYANAN ADMINISTRASI ASN
+    </div>
 
-<h3>📢 Informasi Penting</h3>
+    <h1>
+      Kenaikan Gaji<br>
+      <span>Berkala (KGB)</span>
+    </h1>
 
-<p>
-Jika muncul keterangan 
-<b>"TMT *** Tahun Sudah Selesai"</b>,
-silakan segera hubungi BKD.
-</p>
+    <p class="hero-desc">
+      Akses layanan pengajuan dan pemantauan
+      Kenaikan Gaji Berkala dengan mudah
+      melalui portal layanan kepegawaian
+      RSUD dr. Soedarso.
+    </p>
 
-<p>
-Klik tombol di bawah untuk menghubungi 
-<b>Ibu Mettie</b> via WhatsApp, lalu:
-</p>
+  </div>
+</header>
 
-<ul>
-  <li>Tanyakan apakah SK sudah dikirim ke Admin Soedarso</li>
-  <li>Kirimkan <b>screenshoot tampilan catatan</b> ke BKD</li>
-</ul>
+<main class="container">
 
-<a class="wa-btn"
-href="https://wa.me/6282155648339"
-target="_blank">
-💬 Hubungi Ibu Mettie (BKD)
-</a>
+  <!-- SERVICES -->
+  <section class="panel">
 
-<p style="margin-top:12px">
-Jika sudah dikirim ke Soedarso, silakan hubungi 
-<b>Bagian KGB RSUD dr Soedarso</b>.
-</p>
+    <div class="section-kicker">
+      PUSAT LAYANAN
+    </div>
 
-<div class="warn">
-⚠️ Khusus: PNS Golongan III/d – IV/e dan PPPK
-</div>
+    <h2 class="section-title">
+      Pilih Layanan Anda
+    </h2>
 
-</div>
+    <p class="section-desc">
+      Ikuti tahapan pengajuan sesuai
+      dengan status dan golongan kepegawaian Anda.
+    </p>
 
-<!-- MENU -->
-<div class="grid">
+    <div class="service-grid">
 
-<!-- STEP 1 -->
-<a class="btn" target="_blank"
-href="https://script.google.com/macros/s/AKfycbxNBS7cj5Nin-zJCMA75Mw3qtG-Rgg6zN_PpgCTL_lzcAbh8VLM8ri9T4Q31vnoa8cf/exec">
+      <!-- STEP 1 -->
+      <article class="service step-one">
 
-<div class="icon i-blue">📝</div>
+        <div class="service-top">
+          <div class="service-icon">📝</div>
+          <div class="step-badge">TAHAP 01</div>
+        </div>
 
-<div>
-<div class="btn-text">Step 1 Ajukan KGB</div>
-<div class="sub">Untuk semua ASN</div>
-</div>
+        <h3>Pengajuan KGB</h3>
 
-</a>
+        <p>
+          Layanan pengajuan awal Kenaikan
+          Gaji Berkala untuk seluruh
+          Aparatur Sipil Negara.
+        </p>
 
-<!-- STEP 2 -->
-<a class="btn" target="_blank"
-href="https://script.google.com/macros/s/AKfycbw3FKn81TKGYsN657-z88fOSMkkKz9fC244pSjF0mvEeC-x4a_4-s6LjP4s9RJxVxMXbg/exec">
+        <div class="service-info">
+          <strong>👥 Pengguna layanan</strong><br>
+          Seluruh ASN RSUD dr. Soedarso.
+        </div>
 
-<div class="icon i-cyan">🔗</div>
+        <a class="service-action"
+           target="_blank"
+           rel="noopener noreferrer"
+           href="https://script.google.com/macros/s/AKfycbxNBS7cj5Nin-zJCMA75Mw3qtG-Rgg6zN_PpgCTL_lzcAbh8VLM8ri9T4Q31vnoa8cf/exec">
 
-<div style="width:100%">
+          <div class="action-inner">
+            <span>Mulai Pengajuan</span>
+            <span class="arrow">↗</span>
+          </div>
 
-<div class="btn-text">
-Step 2 Ajukan ke BKD
-</div>
+        </a>
 
-<div class="sub">
-Khusus PNS Golongan III/d – IV/e & PPPK<br>
-Setelah mendapatkan Pengantar OPD
-</div>
+      </article>
 
-<div style="
-margin-top:8px;
-background:#ecfeff;
-border:1px solid #a5f3fc;
-padding:8px;
-border-radius:10px;
-font-size:12px;
-color:#155e75;
-font-weight:600;
-line-height:1.4;
-">
-📊 Selain untuk mengajukan, silakan gunakan menu ini untuk 
-<b>memantau status pengajuan Anda secara berkala</b>.
-</div>
+      <!-- STEP 2 -->
+      <article class="service step-two">
 
-</div>
+        <div class="service-top">
+          <div class="service-icon">📋</div>
+          <div class="step-badge">TAHAP 02</div>
+        </div>
 
-</a>
+        <h3>Pengajuan ke BKD</h3>
 
-</div>
+        <p>
+          Layanan pengajuan lanjutan
+          ke BKD setelah memperoleh
+          Surat Pengantar OPD.
+        </p>
 
-<div class="footer">
-RSUD dr Soedarso • Sistem Pengajuan Gaji Berkala
-</div>
+        <div class="service-info">
+          <strong>👥 Pengguna layanan</strong><br>
+          PNS Golongan III/d – IV/e dan PPPK.
+          <br><br>
+          <strong>📊 Pemantauan status</strong><br>
+          Gunakan layanan ini juga untuk
+          memeriksa perkembangan
+          pengajuan secara berkala.
+        </div>
 
-</div>
+        <a class="service-action"
+           target="_blank"
+           rel="noopener noreferrer"
+           href="https://script.google.com/macros/s/AKfycbw3FKn81TKGYsN657-z88fOSMkkKz9fC244pSjF0mvEeC-x4a_4-s6LjP4s9RJxVxMXbg/exec">
+
+          <div class="action-inner">
+            <span>Ajukan / Cek Status</span>
+            <span class="arrow">↗</span>
+          </div>
+
+        </a>
+
+      </article>
+
+    </div>
+
+    <div class="flow-note">
+      <div class="symbol">💡</div>
+      <p>
+        <strong>Petunjuk:</strong>
+        Mulailah dari Tahap 01 untuk pengajuan KGB.
+        Tahap 02 diperuntukkan bagi PNS
+        Golongan III/d – IV/e dan PPPK
+        setelah menerima Surat Pengantar OPD.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- FINANCE INFORMATION -->
+  <section class="finance-panel">
+
+    <div class="finance-heading">
+      <div class="finance-icon">💼</div>
+
+      <div>
+        <h2>Informasi Bagian Keuangan</h2>
+        <span>Tindak lanjut SK KGB</span>
+      </div>
+    </div>
+
+    <p class="finance-message">
+      Apabila <strong>SK Kenaikan Gaji Berkala
+      (KGB) sudah tersedia</strong>,
+      silakan menghubungi
+      <strong>Bagian Keuangan RSUD dr. Soedarso</strong>
+      melalui kontak di bawah untuk
+      tindak lanjut administrasi.
+    </p>
+
+    <div class="finance-contact">
+
+      <div>
+        <div class="contact-label">
+          KONTAK BAGIAN KEUANGAN
+        </div>
+
+        <div class="contact-name">
+          Kak Sofia
+        </div>
+
+        <div class="contact-phone">
+          0858-2256-5534
+        </div>
+      </div>
+
+      <a class="wa-button"
+         href="https://wa.me/6285822565534?text=Halo%20Kak%20Sofia%2C%20saya%20ingin%20menyampaikan%20PDF%20SK%20KGB%20untuk%20tindak%20lanjut%20administrasi.%20Terima%20kasih."
+         target="_blank"
+         rel="noopener noreferrer">
+        💬 Hubungi via WhatsApp
+      </a>
+
+    </div>
+
+    <div class="pdf-reminder">
+      <span>📎</span>
+      <span>
+        Mohon sampaikan atau kirimkan
+        file <strong>PDF SK KGB</strong>
+        kepada Kak Sofia melalui WhatsApp.
+      </span>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <strong>RSUD dr. Soedarso</strong><br>
+  Sistem Layanan Kenaikan Gaji Berkala<br>
+  Portal Administrasi Kepegawaian
+</footer>
 
 </body>
 </html>
